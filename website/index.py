@@ -31,21 +31,10 @@ def gaz():
     return str(gaz)
 
 
-@app.route("/mouvement/avancer")
-def avancer():
-    return "Avant"
+@app.route("/mouvement/<direction>")
+def mouvement(direction):
+    return direction
 
-@app.route("/mouvement/reculer")
-def reculer():
-    return "Arrière"
-
-@app.route("/mouvement/droite")
-def droite():
-    return "Droite"
-
-@app.route("/mouvement/gauche")
-def gauche():
-    return "Gauche"
 
 if __name__ == "__main__":
     app.run(debug=True, threaded=True)

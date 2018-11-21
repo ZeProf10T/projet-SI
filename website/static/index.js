@@ -28,3 +28,9 @@ reload()
 intervalID = setInterval(reload, 5000)
 
 // Commandes
+
+function mouvement(){
+  $.ajax({url: "/mouvement/)", success: function(result){
+    $("#info").html(result)
+  }})
+}
