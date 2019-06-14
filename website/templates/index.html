@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Hello from Flask</title>
+  <title>RPSD - Accueil</title>
   <meta charset="utf-8">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="static/index.js"></script>
@@ -22,34 +22,32 @@
   </hr size="40">
     <div class="row">
 
-      <div id="capteur" class="col-4 text-center">
+      <div id="capteur" class="col-3 text-center">
 
         <h3>Capteurs</h3>
 
-        <p>Quantité de gaz : <span id="gaz"> </span></br>
-        Température : <span id="temp"> </span> </br>
-        Humidité : <span id="hum"> </span> </p>
+        <p>Quantité de gaz : <span id="gaz"> </span> ppm </br>
+        Température : <span id="temp"> </span>° </br>
+        Humidité : <span id="hum"> </span> % </p>
 
       </div>
 
-      <div id="video" class="col-4 text-center">
-        <iframe src="https://player.twitch.tv/?channel=doigby" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620" muted="off"></iframe><a href="https://www.twitch.tv/doigby?tt_content=text_link&tt_medium=live_embed"></a>
-      </div>
+       <div id="video" class="col-6 text-center">
+         <img src="{{ url_for('image_url') }}">
+        </div>
 
-      <div id="action" class="col-4 text-center">
+      <div id="action" class="col-3 text-center">
 
         <h3 class="text-center">Commandes</h3>
         <p id="info"> </p>
-        <p><button onclick="mouvement()">↑</button></p>
+        <p><button onclick='mouvement("avancer")'>↑</button></p>
         <p>
-          <button onclick="mouvement()">←</button>
-          <button onclick="mouvement()">→</button>
-
+          <button onclick='mouvement("gauche")'>←</button>
+          <button onclick='mouvement("droite")'>→</button>
         </p>
-        <p> <button onclick="mouvement()">↓</button> </p>
+        <p> <button onclick='mouvement("reculer")'>↓</button> </p>
 
-        <p></br><button onclick="">Arret moteur</button></p>
-        <p></br><button onclick="">Activer jet d'eau</button></p>
+        <p></br><button onclick="jet()">Activation extincteur</button></p>
 
 
       </div>

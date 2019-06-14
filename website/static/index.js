@@ -13,13 +13,14 @@ function gaz(){
 function tempAndHum(){
   $.ajax({url: "/capteur/tempAndHum", success: function(result){
     res = result.split(",")
-    $("#temp").html(res[0])
-    $("#hum").html(res[1])
+	    $("#temp").html(res[0])
+    	    $("#hum").html(res[1])
+	
   }})
 }
 
 function reload(){
-  gaz()
+   gaz()
   tempAndHum()
 }
 
@@ -28,9 +29,14 @@ reload()
 intervalID = setInterval(reload, 5000)
 
 // Commandes
+function jet(){
+  $.ajax({url: "/jet)"})
+}
 
-function mouvement(){
-  $.ajax({url: "/mouvement/)", success: function(result){
+
+function mouvement(direction){
+  $.ajax({url: "/mouvement/" + direction, success: function(result){
     $("#info").html(result)
-  }})
+  }
+  })
 }
